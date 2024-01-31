@@ -1,0 +1,274 @@
+
+
+{
+  "grade6easyquiz": [
+    {
+      "title": "Eyebrows",
+       "image": "../IMAGE/eyebrows.png", 
+      "content": "Eyebrows are part of the face which serve two purposes—for beauty and protection.\nEyebrows make the face look more beautiful by calling attention to the eyes. They make the eyes look healthier and brighter.\nEyebrows not only beautify the face but also protect the eyes from sweat. Without the eyebrows, drops of sweat may run into the eyes and blur the sight. Sweat in itself is poisonous and should be rid-off.",
+      "questions": [
+        {
+          "question": "The part of the body mentioned in the selection is the",
+          "options": [
+            "eyelashes",
+            "eyelids",
+            "eyebrows"
+          ],
+          "answer": "eyebrows"
+        },
+        {
+          "question": "They call attention to the",
+          "options": [
+            "nose",
+            "eyes",
+            "cheeks"
+          ],
+          "answer": "eyes"
+        },
+        {
+          "question": "They make them look",
+          "options": [
+            "uglier",
+            "healthier",
+            "funnier"
+          ],
+          "answer": "healthier"
+        },
+        {
+          "question": "Sweat can blur the sense of",
+          "options": [
+            "sight",
+            "smell",
+            "hearing"
+          ],
+          "answer": "sight"
+        }
+      ],
+      "vocabulary": [
+        {"word": "Eyebrows", "meaning": "The strip of hair growing on the ridge above a person's eye socket."},
+        {"word": "Beautify", "meaning": "To make beautiful or more beautiful."}
+      ]
+    },
+    {
+      "title": "Rain ",
+      "image":"../IMAGE/rain.png",
+      "content": "It is raining\n“It is raining hard,” said Lani.\nThe rain is falling on the houses.\nThe rain is falling on the trees.\nThere is water on the streets.\n“I will not go to school today,” said Tita.\n“I might catch cold.”",
+      "questions": [
+        {
+          "question": "Who will not go to school?",
+          "options": [
+            "Tita",
+            "Lani",
+            "A. Girl"
+          ],
+          "answer": "Tita"
+        },
+        {
+          "question": "Why will she not go to school?",
+          "options": [
+            "It is cold.",
+            "It is raining.",
+            "It is warm."
+          ],
+          "answer": "It is raining."
+        },
+        {
+          "question": "What filled the streets with water?",
+          "options": [
+            "wind",
+            "clouds",
+            "rain"
+          ],
+          "answer": "rain"
+        },
+        {
+          "question": "Where is the rain falling?",
+          "options": [
+            "on the houses and trees",
+            "in the classroom",
+            "in the garden"
+          ],
+          "answer": "on the houses and trees"
+        },
+        {
+          "question": "Why will Tita not go to school?",
+          "options": [
+            "She may catch cold.",
+            "She has no umbrella.",
+            "She will play."
+          ],
+          "answer": "She may catch cold."
+        }
+      ],
+      "vocabulary": [
+        {"word": "Raining", "meaning": "The process of water droplets falling from the sky."},
+        {"word": "Streets", "meaning": "The paved areas of a city, town, or village, typically including the road and sidewalks."}
+      ]
+    },
+    {
+      "title": "HOW TO BE BIG AND STRONG",
+      "content": "Berto is big and strong. He eats good breakfast before going to school. He drinks milk. He eats vegetables, too.\nHe plays in the yard. These things help Berto become big and strong.",
+      "questions": [
+        {
+          "question": "Who is the boy in the story?",
+          "options": [
+            "Tito",
+            "Berto",
+            "Lito"
+          ],
+          "answer": "Berto"
+        },
+        {
+          "question": "Which one tells about him?",
+          "options": [
+            "He is big and strong",
+            "He is small and thin",
+            "He is lazy"
+          ],
+          "answer": "He is big and strong"
+        },
+        {
+          "question": "What does Berto eat before he goes to school?",
+          "options": [
+            "A good dinner",
+            "A good breakfast",
+            "A good supper"
+          ],
+          "answer": "A good breakfast"
+        },
+        {
+          "question": "What other things make Berto big and strong?",
+          "options": [
+            "Milk and vegetables",
+            "Coffee and candy",
+            "Milk and coffee"
+          ],
+          "answer": "Milk and vegetables"
+        },
+        {
+          "question": "Where does Berto play?",
+          "options": [
+            "In the house",
+            "In the yard",
+            "Under the sun"
+          ],
+          "answer": "In the yard"
+        }
+      ],
+      "vocabulary": [
+        {"word": "Solar System", "meaning": "The collection of planets and other celestial bodies that orbit the sun."},
+        {"word": "Energy", "meaning": "The ability to do work or cause change."}
+      ]
+    },
+    {
+      "title": "OUR FRIENDS",
+      "content": "I love to see the birds fly. I love to hear their pretty songs.\nBirds are our friends. They eat harmful insects on our plants.\nThey are very pretty. They make us happy. We must be kind to birds.",
+      "questions": [
+        {
+          "question": "What do we love to see?",
+          "options": [
+            "Birds",
+            "Chickens",
+            "Geese"
+          ],
+          "answer": "Birds"
+        },
+        {
+          "question": "What do birds do?",
+          "options": [
+            "They talk",
+            "They fly",
+            "They swim"
+          ],
+          "answer": "They fly"
+        },
+        {
+          "question": "What do we love to hear?",
+          "options": [
+            "Birds’ songs",
+            "Birds’ talk",
+            "Birds’ call"
+          ],
+          "answer": "Birds’ songs"
+        },
+        {
+          "question": "What do birds do for us?",
+          "options": [
+            "They make us sad.",
+            "They make us happy.",
+            "They make us angry."
+          ],
+          "answer": "They make us happy."
+        },
+        {
+          "question": "How do birds help us?",
+          "options": [
+            "They eat sweet fruits.",
+            "They eat harmful insects.",
+            "They eat green plants."
+          ],
+          "answer": "They eat harmful insects."
+        }
+      ],
+      "vocabulary": [
+        {"word": "Kind", "meaning": "Having or showing a friendly, generous, and considerate nature."},
+        {"word": "Insects", "meaning": "Small arthropod animals with a chitinous exoskeleton and three-part body."}
+      ]
+    },
+    {
+      "title": "BUSY CHILDREN",
+      "content": "It was Saturday. “Let us clean the house,” said Gloria.\n“I will clean the yard,” said Nilo. “I will pull the grass. I will sweep the yard. I will burn the dry leaves.”\n“I will water the plants,” said Lina.",
+      "questions": [
+        {
+          "question": "What day was it?",
+          "options": [
+            "Monday",
+            "Saturday",
+            "Friday"
+          ],
+          "answer": "Saturday"
+        },
+        {
+          "question": "Who asked that they clean the house?",
+          "options": [
+            "Nilo",
+            "Mother",
+            "Gloria"
+          ],
+          "answer": "Gloria"
+        },
+        {
+          "question": "What will Nilo do?",
+          "options": [
+            "He will clean the garden.",
+            "He will help clean the house.",
+            "He will clean the yard."
+          ],
+          "answer": "He will clean the yard."
+        },
+        {
+          "question": "What will Nilo do with the grass?",
+          "options": [
+            "Water them",
+            "Plant them",
+            "Pull them out"
+          ],
+          "answer": "Pull them out"
+        },
+        {
+          "question": "Who will water the plants?",
+          "options": [
+            "Lina",
+            "Nilo",
+            "Gloria"
+          ],
+          "answer": "Lina"
+        }
+      ],
+      "vocabulary": [
+        {"word": "Burn", "meaning": "Cause (a flame or fire) to spread."},
+        {"word": "Yard", "meaning": "An area of ground surrounded by walls or buildings."}
+      ]
+    }
+  ]
+}
