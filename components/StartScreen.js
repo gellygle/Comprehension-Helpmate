@@ -16,7 +16,7 @@ const SplashScreen = ({ navigation }) => {
 
   return (
       <ImageBackground
-        source={require('../bggif.gif')}
+        source={require('../assets/bg.gif')}
       style={styles.backgroundImage}
     >
       <View style={styles.container}>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
@@ -9,9 +10,13 @@ import {
   Modal,
   Image,
 } from 'react-native';
+import {Audio} from 'expo-av';
 
 const Grade4EasyQuiz = () => {
   const [selectedPassage, setSelectedPassage] = useState(null);
+  const [sound, setSound] = useState();
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -25,11 +30,13 @@ const Grade4EasyQuiz = () => {
   const [timer, setTimer] = useState(60);
   const [performanceRemark, setPerformanceRemark] = useState('');
 
-const passages = [
+
+  const passages = [
     {
       title: 'OUR SCHOOL',
       content: 'Our school is big. It is beautiful.\nWe have a flag in front of our school.\nWe have a garden in our school, too.\nOur school is clean. We help clean our school.',
        image: require('./IMAGE/school.png'),
+       passageAudio:require('../voice4/ourschool.mp3'),
       questions: [
         {
           question: 'What does the story tell about?',
@@ -70,6 +77,7 @@ const passages = [
       title: 'VEGETABLES',
       content: '“Look Father,” shouted Leon.\n“Our beans have fruits.\n“Our patola plants have fruits, too.”\n“Let us pick some of them,” Father said.\n“We shall sell them in the market. Mother will cook some, too.”',
        image: require('./IMAGE/vegetables.png'),
+       passageAudio:require('../voice4/vegetables.mp3'),
       questions: [
         {
           question: 'Who saw the fruits of beans and patola?',
@@ -110,6 +118,7 @@ const passages = [
       title: 'GUESS',
       content: '“Can you guess who I am?” asked Tito.\n“I teach children.\nI teach them to read and write.\nI teach them to be good.\nI teach them how to be polite and helpful.”',
        image: require('./IMAGE/guess.png'),
+       passageAudio:require('../voice4/gues.mp3'),
       questions: [
         {
           question: 'Who is talking in the story?',
@@ -150,6 +159,7 @@ const passages = [
       title: 'FLYING KITES',
       content: '“Let us fly our kites,” said Celo. “It is good to fly kites now.\nThe wind will help us fly our kites. The boys made their kites fly.\nThey had blue kites, red kites, green kites, and yellow kites. Their kites went up,\nup in the sky. They looked like birds up in the sky.',
        image: require('./IMAGE/kites.png'),
+       passageAudio:require('../voice4/kite.mp3'),
       questions: [
         {
           question: 'Who asked the boys to fly kites?',
@@ -189,6 +199,7 @@ const passages = [
       title: 'SHELLFISH',
       content: '“Mother, what’s this?” Sherbet asked showing a shell she found on the beach.\nThat is an empty home of a small animal called shellfish.\nShellfish has a soft body so it needs a hard shell to protect it from starfish, crabs, fish, or even birds.',
        image: require('./IMAGE/shellfish.png'),
+       passageAudio:require('../voice4/shellfish.mp3'),
       questions: [
         {
           question: 'Who found a shell?',
@@ -225,10 +236,7 @@ const passages = [
       ],
   
     },
-  ];
-  
-
-  
+  ]
   useEffect(() => {
     let timerInterval;
     if (showQuiz && timer > 0) {
@@ -326,6 +334,60 @@ const handleAnswerButtonClick = (option) => {
     setShowVocabularyModal(false);
   };
 
+//   const playAudio = async () => {
+//   const { sound } = await Audio.Sound.createAsync(
+//     passages[selectedPassage].passageAudio
+//   );
+//   setSound(sound);
+
+//   await sound.playAsync();
+// };
+
+
+// const stopAudio = async () => {
+//   if (sound) {
+//     await sound.stopAsync();
+//   }
+// };
+
+// const playAudio = async () => {
+//   try {
+//     const { sound } = await Audio.Sound.createAsync(
+//       passages[selectedPassage].passageAudio
+//     );
+//     setSound(sound);
+//     await sound.playAsync();
+//   } catch (error) {
+//     console.error('Error playing audio', error);
+//   }
+// };
+
+
+const playAudio = async () => {
+  try {
+    const { sound } = await Audio.Sound.createAsync(
+      passages[selectedPassage].passageAudio
+    );
+    setSound(sound);
+    await sound.playAsync();
+    setIsPlaying(true); // Set isPlaying to true when audio starts playing
+  } catch (error) {
+    console.error('Error playing audio', error);
+  }
+};
+
+const pauseAudio = async () => {
+  try {
+    if (sound && isPlaying) {
+      await sound.pauseAsync();
+      setIsPlaying(false); // Set isPlaying to false when audio is paused
+    }
+  } catch (error) {
+    console.error('Error pausing audio', error);
+  }
+};
+
+
   return (
     <View style={styles.container}>
       {selectedPassage === null ? (
@@ -411,6 +473,14 @@ const handleAnswerButtonClick = (option) => {
               <Text style={styles.passageTitle}>
                 {passages[selectedPassage].title}
               </Text>
+               {/* Play Audio Button */}
+               <TouchableOpacity
+                      style={styles.playButton}
+                      onPress={isPlaying ? pauseAudio : playAudio}>
+                      <Text style={styles.buttonText}>
+                        {isPlaying ? 'Pause Audio' : 'Play Audio'}
+                      </Text>
+                    </TouchableOpacity>
               <ScrollView>
                 <Text style={styles.passageContent}>
                   {passages[selectedPassage].content}
@@ -628,15 +698,15 @@ const styles = StyleSheet.create({
  scoreContainer: {
   alignItems: 'center',
   marginTop: 10,
-  padding: 20, 
-  backgroundColor: 'rgba(0, 0, 0, 0.6)', 
+  padding: 20, // Add padding to create separation
+  backgroundColor: 'rgba(0, 0, 0, 0.6)', // Add a background color for scoring UI
   borderRadius: 10,
 },
 
 scoreText: {
   fontSize: 30,
   fontWeight: 'bold',
-  color: '#fff', 
+  color: '#fff', // Adjust text color
   marginBottom: 20,
 },
 remarkText: {
@@ -645,7 +715,7 @@ remarkText: {
   color: '#e74c3c',
   marginBottom: 10,
   textAlign: 'center',
-  color: '#fff', 
+  color: '#fff', // Adjust text color
 },
 
   button: {
@@ -701,6 +771,18 @@ remarkText: {
   marginBottom: 10,
   textAlign: 'center',
 },
+playButton: {
+  backgroundColor: '#e74c3c',
+  padding: 15,
+  borderRadius: 10,
+  marginTop: 20,
+}
+
 
 });
 export default Grade4EasyQuiz;
+
+;
+  
+
+  

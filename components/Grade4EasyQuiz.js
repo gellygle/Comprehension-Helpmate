@@ -9,9 +9,13 @@ import {
   Modal,
   Image,
 } from 'react-native';
+import {Audio} from 'expo-av';
 
 const Grade4EasyQuiz = () => {
   const [selectedPassage, setSelectedPassage] = useState(null);
+  const [sound, setSound] = useState();
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -29,6 +33,7 @@ const Grade4EasyQuiz = () => {
     title: 'THE EYEBROWS',
     content: 'Eyebrows are part of the face which serve two purposes—for beauty and protection.\nEyebrows make the face look more beautiful by calling attention to the eyes. They make the eyes look healthier and brighter.\nEyebrows not only beautify the face but also protect the eyes from sweat. Without the eyebrows, drops of sweat may run into the eyes and blur the sight. Sweat in itself is poisonous and should be rid-off.',
     image: require('./IMAGE/eyebrows.png'),
+    passageAudio:require('../voice4/Eyebrow.mp3'),
     questions: [
       {
         question: 'The part of the body mentioned in the selection is the',
@@ -63,6 +68,7 @@ const Grade4EasyQuiz = () => {
     title: 'THE RAIN',
     content: 'It is raining\n“It is raining hard,” said Lani.\nThe rain is falling on the houses.\nTha rain is falling on the tress.\nThere is water on the streets.\n“I will not go to school today,” said Tita.\n“I might catch cold.”',
     image: require('./IMAGE/therain.png'),
+    passageAudio:require('../voice4/therain.mp3'),
     questions: [
       {
         question: 'Who will not go to school',
@@ -91,6 +97,7 @@ const Grade4EasyQuiz = () => {
     title: 'HOW TO BE BIG AND STRONG',
     content: 'Berto is big and strong. He eats good breakfast before going to school. He drinks milk. He eats vegetables, too.\nHe plays in the yard. These things help Berto become big and strong.',
     image: require('./IMAGE/bigstrong.png'),
+    passageAudio:require('../voice4/strong.mp3'),
     questions: [
       {
         question: 'Who is the boy in the story?',
@@ -142,6 +149,7 @@ const Grade4EasyQuiz = () => {
     title: 'OUR FRIENDS',
     content: 'I love to see the birds fly. I love to hear their pretty songs.\nBirds are our friends. They eat harmful insects on our plants. \nThey are very pretty. They make us happy. We must be kind to birds.',
     image: require('./IMAGE/ourfriend.png'),
+    passageAudio:require('../voice4/ourfriend.mp3'),
     questions: [
       {
         question: 'What do we love to see?',
@@ -189,6 +197,7 @@ const Grade4EasyQuiz = () => {
     title: 'BUSY CHILDREN',
     content: 'It was Saturday. “Let us clean the house,” said Gloria.\n“I will clean the yard,” said Nilo. “I will pull the grass. I will sweep the yard. I will burn the dry leaves.”\n“I will water the plants,” said Lina.',
     image: require('./IMAGE/busychildren.png'),
+    passageAudio:require('../voice4/busychildren.mp3'),
     questions: [
       {
         question: 'What day was it?',
@@ -326,6 +335,31 @@ const handleAnswerButtonClick = (option) => {
     setShowVocabularyModal(false);
   };
 
+const playAudio = async () => {
+  try {
+    const { sound } = await Audio.Sound.createAsync(
+      passages[selectedPassage].passageAudio
+    );
+    setSound(sound);
+    await sound.playAsync();
+    setIsPlaying(true); // Set isPlaying to true when audio starts playing
+  } catch (error) {
+    console.error('Error playing audio', error);
+  }
+};
+
+const pauseAudio = async () => {
+  try {
+    if (sound && isPlaying) {
+      await sound.pauseAsync();
+      setIsPlaying(false); // Set isPlaying to false when audio is paused
+    }
+  } catch (error) {
+    console.error('Error pausing audio', error);
+  }
+};
+
+
   return (
     <View style={styles.container}>
       {selectedPassage === null ? (
@@ -411,6 +445,14 @@ const handleAnswerButtonClick = (option) => {
               <Text style={styles.passageTitle}>
                 {passages[selectedPassage].title}
               </Text>
+               {/* Play Audio Button */}
+               <TouchableOpacity
+                      style={styles.playButton}
+                      onPress={isPlaying ? pauseAudio : playAudio}>
+                      <Text style={styles.buttonText}>
+                        {isPlaying ? 'Pause Audio' : 'Play Audio'}
+                      </Text>
+                    </TouchableOpacity>
               <ScrollView>
                 <Text style={styles.passageContent}>
                   {passages[selectedPassage].content}
@@ -701,6 +743,13 @@ remarkText: {
   marginBottom: 10,
   textAlign: 'center',
 },
+playButton: {
+  backgroundColor: '#e74c3c',
+  padding: 10,
+  borderRadius: 10,
+  marginTop: 5,
+}
+
 
 });
 export default Grade4EasyQuiz;
